@@ -21,17 +21,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 
 export default function App() {
 
-  // ── Dark mode ────────────────────────────────────────────
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem("dilbar-dark");
-    if (saved !== null) return saved === "1";
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
 
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-    localStorage.setItem("dilbar-dark", darkMode ? "1" : "0");
-  }, [darkMode]);
 
   // ── Navigation ───────────────────────────────────────────
   const [activePage, setActivePage] = useState("dashboard");
@@ -57,8 +47,6 @@ export default function App() {
       <Sidebar
         activePage={activePage}
         onNavigate={setActivePage}
-        darkMode={darkMode}
-        onToggleDark={() => setDarkMode(d => !d)}
         hasResult={status === "done"}
       />
 

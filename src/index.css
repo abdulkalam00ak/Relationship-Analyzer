@@ -63,26 +63,7 @@ a { color: inherit; text-decoration: none; }
   --sidebar-w: 240px;
 }
 
-/* Dark mode */
-.dark {
-  --cream:          #100a0d;
-  --sidebar-bg:     #1a0810;
-  --surface:        #1a1015;
-  --surface2:       #221520;
-  --text-primary:   #f5eef0;
-  --text-secondary: #c8aab5;
-  --text-muted:     #7a5c68;
-  --border:         rgba(200, 170, 181, 0.10);
-  --shadow-sm:      0 1px 8px  rgba(0, 0, 0, 0.30);
-  --shadow-md:      0 4px 20px rgba(0, 0, 0, 0.35);
-  --shadow-lg:      0 8px 40px rgba(0, 0, 0, 0.40);
-  --burg-light:     #220d12;
-  --lav-light:      #221808;
-  --burg-border:    #3d1520;
-  --lav-border:     #402a0a;
-  --surface2:       #1e1220;
-  --color-good-bg:  #221808;
-}
+
 
 /* ─── BASE ──────────────────────────────────────────────────── */
 body {
@@ -204,42 +185,7 @@ body {
   margin-left: auto;
 }
 
-.sidebar-foot {
-  padding: 16px 12px 20px;
-  border-top: 1px solid var(--border);
-}
 
-.toggle-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 0.15s;
-  user-select: none;
-}
-.toggle-row:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
-
-.toggle-track {
-  width: 30px; height: 16px;
-  border-radius: 8px;
-  background: var(--border);
-  position: relative;
-  transition: background 0.2s;
-  flex-shrink: 0;
-}
-.dark .toggle-track { background: var(--lav); }
-.toggle-knob {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: white;
-  position: absolute;
-  top: 3px; left: 3px;
-  transition: transform 0.2s;
-}
-.dark .toggle-knob { transform: translateX(14px); }
 
 /* ─── TOPBAR ────────────────────────────────────────────────── */
 .topbar {
@@ -1162,8 +1108,7 @@ body {
 
   .brand-tag,
   .nav-item span:not(.badge),
-  .nav-group-label,
-  .toggle-row span { display: none; }
+  .nav-group-label { display: none; }
 
   .nav-item { padding: 10px; justify-content: center; }
   .nav-item i { width: auto; }
@@ -1247,3 +1192,25 @@ body {
 
 /* Heart symbol */
 .topbar-title i { color: var(--rose); }
+
+.dev-credit {
+  display: inline-block;
+  background: #FFF0E0;
+  color: #888888;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  padding: 2px 8px;
+  margin-top: 4px;
+  letter-spacing: 0.2px;
+  user-select: none;
+}
+
+.upload-zone--extracting { border-color: var(--gold); background: var(--gold-light); cursor: not-allowed; }
+.upload-zip-badge { display: inline-block; font-size: 9px; font-weight: 600; padding: 1px 5px; background: var(--maroon); color: white; border-radius: 3px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.5px; }
+.upload-formats { display: flex; gap: 8px; justify-content: center; margin: 8px 0; }
+.format-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 3px 10px; border: 1px solid var(--border); border-radius: 4px; color: var(--text-secondary); background: var(--surface); }
+.format-badge--zip { border-color: var(--maroon-border); color: var(--maroon); background: var(--maroon-light); }
+.spin { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

@@ -7,14 +7,11 @@
  *   - dilbar brand + Urdu tagline
  *   - Navigation items with active state
  *   - Collapses to icon-only on mobile (< 640px via CSS)
- *   - Dark mode toggle at the bottom
  *   - "NEW" badge on AI Insights nav item
  *
  * Props:
  *   activePage   string   — current active nav id
  *   onNavigate   fn       — called with nav id on click
- *   darkMode     boolean  — current dark mode state
- *   onToggleDark fn       — toggles dark mode
  *   hasResult    boolean  — whether analysis is done (enables report nav)
  * ─────────────────────────────────────────────────────────────
  */
@@ -54,8 +51,6 @@ const NAV_GROUPS = [
 export default function Sidebar({
   activePage,
   onNavigate,
-  darkMode,
-  onToggleDark,
   hasResult = false,
 }) {
   // Report and analytics nav items are disabled until analysis is done
@@ -71,6 +66,7 @@ export default function Sidebar({
       {/* Brand */}
       <div className="sidebar-top">
         <div className="brand">dilbar</div>
+        <span className="dev-credit">developed by wabisabi.abdul</span>
         <div className="brand-tag">دِلبر — Relationship Analyzer</div>
       </div>
 
@@ -103,23 +99,6 @@ export default function Sidebar({
           </div>
         ))}
       </nav>
-
-      {/* Dark mode toggle */}
-      <div className="sidebar-foot">
-        <div
-          className="toggle-row"
-          onClick={onToggleDark}
-          role="switch"
-          aria-checked={darkMode}
-          tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && onToggleDark()}
-        >
-          <div className="toggle-track">
-            <div className="toggle-knob" />
-          </div>
-          <span>Dark mode</span>
-        </div>
-      </div>
 
     </aside>
   );
